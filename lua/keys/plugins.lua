@@ -20,10 +20,7 @@ nm('<leader>f', '<cmd>Telescope live_grep<CR>')                      -- Поис
 nm('<leader>q', '<cmd>Telescope buffers<CR>')                        -- Буфферы
 
 -- SymbolsOutline
-nm('<leader>s', '<cmd>SymbolsOutline<CR>')                        -- Структура для файла
-
--- SymbolsOutline
-nm('<leader>s', '<cmd>SymbolsOutline<CR>')                        -- Структура для файла
+-- nm('<leader>s', '<cmd>SymbolsOutline<CR>')                        -- Структура для файла
 
 -- BufferLine
 nm('gx', '<cmd>bd<CR>')                                            -- Закрыть буффер
@@ -35,6 +32,8 @@ nm('gt', '<cmd>BufferLineCycleNext<CR>')                           -- Перей
 -- Formatter
 -- nm('<leader>l', '<cmd>Format<CR>')
 
+-- Prettier
+nm('<leader>l', '<cmd>Prettier<CR>')
 
 -- Trouble
 nm('<leader>x', '<cmd>TroubleToggle<CR>')                         -- Открыть меню с проблемами LSP

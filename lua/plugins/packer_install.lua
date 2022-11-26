@@ -182,4 +182,35 @@ return require('packer').startup(function()
 		end
 	}
 
+	-- Корректный синтаксис JSX
+	use {
+		'neoclide/vim-jsx-improve'
+	}
+
+	-- Prettier
+	use {
+		'prettier/vim-prettier'
+	}
+
+	-- Auto Save
+	use {
+		'Pocco81/auto-save.nvim',
+		config = function()
+			require('plugins/auto-save')
+		end
+	}
+
+	-- Сниппеты
+	use {
+		'dcampos/nvim-snippy'
+	}
+
+	use {
+		'honza/vim-snippets'
+	}
+
+	use {
+		'dcampos/cmp-snippy'
+	}
+
 end)

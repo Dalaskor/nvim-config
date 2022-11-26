@@ -16,7 +16,7 @@ lspinstaller.setup{
 	ensure_installed = {
 		'cssls',                  -- CSS
 		'emmet_ls',               -- HTML
-		'jedi_language_server',   -- Python
+		'pyright',				  -- Python
 		'sumneko_lua',            -- Lua
 		'tsserver',               -- Typescript, Javascript
 		'volar'                   -- Vue
