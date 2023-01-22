@@ -9,14 +9,15 @@ return require('packer').startup(function()
 
 	--[[ ТЕМЫ ]]--
 	-- GitHub Theme
-	use({'projekt0n/github-nvim-theme',
+	--[[ use({'projekt0n/github-nvim-theme',
 		config = function()
 			require('github-theme').setup({
 				theme_style = "dark_default",
 			})
   		end
-	})
-
+	}) ]]
+	use 'Mofiqul/dracula.nvim'
+	vim.cmd[[colorscheme dracula]]
 	--[[ ПРОВОДНИК ]]--
 	-- Neo Tree
 	use {
