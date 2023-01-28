@@ -193,6 +193,11 @@ return require('packer').startup(function()
 		'prettier/vim-prettier'
 	}
 
+	-- autopep8
+	use {
+		'tell-k/vim-autopep8',
+	}
+
 	-- Auto Save
 	use {
 		'Pocco81/auto-save.nvim',

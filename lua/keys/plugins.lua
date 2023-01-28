@@ -38,3 +38,6 @@ nm('<leader>l', '<cmd>Prettier<CR>')
 -- Trouble
 nm('<leader>x', '<cmd>TroubleToggle<CR>')                         -- Открыть меню с проблемами LSP
 nm('gr', '<cmd>Trouble lsp_references<CR>')                       -- Референсы в LSP
+
+-- Autopep8
+nm('<F8>', '<cmd>Autopep8<CR>')
