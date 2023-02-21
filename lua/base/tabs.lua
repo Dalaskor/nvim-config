@@ -16,5 +16,9 @@ opt.shiftwidth = 4
 -- При нажатии <CR> будут вставлять табы. Табы рисуются как пробелы. Именно поэтому мы должны установить что каждый таб в новой строке - 2 пробела
 opt.tabstop = 4
 
+opt.shiftwidth = 4
+opt.smarttab = true
+opt.expandtab = true
+
 -- Подстраивать новые строки под предыдущий отступ
 opt.smartindent = true
