@@ -30,7 +30,7 @@ opt.completeopt = 'menuone,noselect'
 
 -- Нумерация строк
 opt.number = true
-
+opt.relativenumber = true
 
 -- Не автокомментировать новые линии при переходе на новую строку
 vim.cmd [[autocmd BufEnter * set fo-=c fo-=r fo-=o]]
