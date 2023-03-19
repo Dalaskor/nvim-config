@@ -34,3 +34,6 @@ opt.relativenumber = true
 
 -- Не автокомментировать новые линии при переходе на новую строку
 vim.cmd [[autocmd BufEnter * set fo-=c fo-=r fo-=o]]
+
+-- Прозрачность
+g.transparent_enabled = True
