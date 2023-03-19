@@ -2,7 +2,7 @@
 require'nvim-treesitter.configs'.setup {
 
 	-- Нужные парсеры
-	ensure_installed = { "c", "lua", "typescript" },
+	ensure_installed = { "c", "lua", "typescript", "python" },
 
 	-- Устанавливать парсеры синхронно
 	sync_install = false,
