@@ -235,17 +235,18 @@ return require('packer').startup(function()
 		end
 	}
 
-	-- Сниппеты
-	use {
-		'dcampos/nvim-snippy'
-	}
+    -- ToggleTerm
+    use {
+        "akinsho/toggleterm.nvim", tag = '*', config = function()
+            require("toggleterm").setup()
+        end
+    }
 
-	use {
-		'honza/vim-snippets'
-	}
-
-	use {
-		'dcampos/cmp-snippy'
-	}
-
+    -- Git
+    use {
+        'dinhhuy258/git.nvim',
+		config = function()
+			require('plugins/git')
+		end
+    }
 end)
