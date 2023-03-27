@@ -249,4 +249,12 @@ return require('packer').startup(function()
 			require('plugins/git')
 		end
     }
+
+    -- nvim-runscript
+    use {
+        "klesh/nvim-runscript",
+        config = function()
+            require("nvim-runscript").setup{}
+        end
+    }
 end)
