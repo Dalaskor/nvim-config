@@ -1,6 +1,23 @@
 -- Добавляем Packer как пакет в Neovim
 vim.cmd [[packadd packer.nvim]]
 
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+-- Have packer use a popup window
+packer.init {
+  max_jobs = 50,
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+    prompt_border = "rounded", -- Border style of prompt popups.
+  },
+}
+
 -- Используем данный коллбэк как список для плагинов
 return require('packer').startup(function()
 
@@ -8,6 +25,7 @@ return require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
 	--[[ ТЕМЫ ]]--
+
 	-- GitHub Theme
 	--[[ use({'projekt0n/github-nvim-theme',
 		config = function()
@@ -17,35 +35,17 @@ return require('packer').startup(function()
   		end
 	}) ]]
 
-	use 'Mofiqul/dracula.nvim'
-	vim.cmd[[colorscheme dracula]]
+    -- Dracula Theme
+	-- use 'Mofiqul/dracula.nvim'
+	-- vim.cmd[[colorscheme dracula]]
 
+    -- Gruvbox Theme
     use {
-        'xiyaowong/transparent.nvim',
+        'morhetz/gruvbox',
         config = function()
-            require("transparent").setup({
-                groups = { -- table: default groups
-                    'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
-                    'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
-                    'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
-                    'SignColumn', 'CursorLineNr', 'EndOfBuffer',
-                },
-                extra_groups = { -- table/string: additional groups that should be cleared
-                -- In particular, when you set it to 'all', that means all available groups
-
-                -- example of akinsho/nvim-bufferline.lua
-                    "BufferLineTabClose",
-                    "BufferlineBufferSelected",
-                    "BufferLineFill",
-                    "BufferLineBackground",
-                    "BufferLineSeparator",
-                    "BufferLineIndicatorSelected",
-                },
-                exclude_groups = {}, -- table: groups you don't want to clear
-            })
+            vim.cmd.colorscheme("gruvbox")
         end
     }
-    
 
 	--[[ ПРОВОДНИК ]]--
 	-- Neo Tree
@@ -56,7 +56,12 @@ return require('packer').startup(function()
 			"nvim-lua/plenary.nvim",
 			"kyazdani42/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
-		}
+		},
+        config = function()
+            require("neo-tree").setup({
+                popup_border_style = "rounded",
+            })
+        end
 	}
 
 	--[[ LSP ]]--

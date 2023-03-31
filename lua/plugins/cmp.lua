@@ -9,6 +9,11 @@ cmp.setup{
 		end,
 	},
 
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
+
 	-- Клавиши, которые будут взаимодействовать в nvim-cmp
 	mapping = {
 
