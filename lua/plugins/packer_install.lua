@@ -1,265 +1,218 @@
--- Добавляем Packer как пакет в Neovim
-vim.cmd [[packadd packer.nvim]]
+vim.cmd([[packadd packer.nvim]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  return
+	return
 end
 
 -- Have packer use a popup window
-packer.init {
-  max_jobs = 50,
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-    prompt_border = "rounded", -- Border style of prompt popups.
-  },
-}
+packer.init({
+	max_jobs = 50,
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+		prompt_border = "rounded", -- Border style of prompt popups.
+	},
+})
 
--- Используем данный коллбэк как список для плагинов
-return require('packer').startup(function()
+return require("packer").startup(function()
+	-- For updating packer
+	use("wbthomason/packer.nvim")
 
-	-- Добавляем Packer в список, чтобы он обновлял сам себя
-	use 'wbthomason/packer.nvim'
-
-	--[[ ТЕМЫ ]]--
-
-	-- GitHub Theme
-	--[[ use({'projekt0n/github-nvim-theme',
+	-- Gruvbox Theme
+	use({
+		"morhetz/gruvbox",
 		config = function()
-			require('github-theme').setup({
-				theme_style = "dark_default",
-			})
-  		end
-	}) ]]
+			vim.cmd.colorscheme("gruvbox")
+		end,
+	})
 
-    -- Dracula Theme
-	-- use 'Mofiqul/dracula.nvim'
-	-- vim.cmd[[colorscheme dracula]]
+	-- LSP Server
+	use("neovim/nvim-lspconfig")
 
-    -- Gruvbox Theme
-    use {
-        'morhetz/gruvbox',
-        config = function()
-            vim.cmd.colorscheme("gruvbox")
-        end
-    }
-
-	--[[ ПРОВОДНИК ]]--
-	-- Neo Tree
-	use {
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		requires  = {
-			"nvim-lua/plenary.nvim",
-			"kyazdani42/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
-        config = function()
-            require("neo-tree").setup({
-                popup_border_style = "rounded",
-            })
-        end
-	}
-
-	--[[ LSP ]]--
-	-- LSP сервер
-	use 'neovim/nvim-lspconfig'
-
-	-- Прогресс LSP
-	use {
-		'j-hui/fidget.nvim',
+	-- LSP Progress
+	use({
+		"j-hui/fidget.nvim",
 		config = function()
-			require('fidget').setup({
+			require("fidget").setup({
 				text = {
 					spinner = "star",
 					commenced = "Запускаю котанов😺😺😺😺",
-					completed = "Котаны готовы автодополнять😺"
+					completed = "Котаны готовы автодополнять😺",
 				},
 				align = {
-					bottom = false
-				}
+					bottom = false,
+				},
 			})
-		end
-	}
-
-	use({
-		'ray-x/navigator.lua',
-		requires = {
-			{ 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
-			{ 'neovim/nvim-lspconfig' },
-		},
-		config = function()
-			require('navigator').setup()
-		end
+		end,
 	})
 
-	-- Удобное меню для обозрения проблем LSP
-	use {
+	use({
+		"ray-x/navigator.lua",
+		requires = {
+			{ "ray-x/guihua.lua", run = "cd lua/fzy && make" },
+			{ "neovim/nvim-lspconfig" },
+		},
+		config = function()
+			require("navigator").setup()
+		end,
+	})
+
+	-- Menu for LSP Troubles
+	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
-			require("trouble").setup {}
+			require("trouble").setup({})
 		end,
-	}
+	})
 
-	-- Автодополнение
-	use {
-		'hrsh7th/nvim-cmp',
+	-- Structur for LSP
+	use({
+		"simrat39/symbols-outline.nvim",
+		config = function()
+			require("plugins/symbols-outline")
+		end,
+	})
+
+	-- Servers Installer for LSP
+	use({
+		"williamboman/nvim-lsp-installer",
+		config = function()
+			require("plugins/lsp-installer")
+		end,
+	})
+
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+	})
+
+	-- Autocomplite
+	use({
+		"hrsh7th/nvim-cmp",
 		requires = {
-			'L3MON4D3/LuaSnip',
-			'saadparwaiz1/cmp_luasnip',
-			'hrsh7th/cmp-nvim-lsp',
-			'hrsh7th/cmp-path',
-			'hrsh7th/cmp-emoji',
-			'hrsh7th/cmp-nvim-lsp-signature-help',
-			'hrsh7th/cmp-nvim-lua'
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-emoji",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"hrsh7th/cmp-nvim-lua",
 		},
 		config = function()
-			require('plugins/cmp')
-		end
-	}
-
-	-- Иконки для автодополнения
-	use {
-		'onsails/lspkind-nvim',
-		config = function()
-			require('plugins/lspkind')
-		end
-	}
-
-	-- Структура для LSP
-	use {
-		'simrat39/symbols-outline.nvim',
-		config = function()
-			require('plugins/symbols-outline')
+			require("plugins/cmp")
 		end,
-	}
+	})
 
-	-- Инсталлер для серверов LSP
-	use {
-		'williamboman/nvim-lsp-installer',
+	use({
+		"windwp/nvim-autopairs",
 		config = function()
-			require('plugins/lsp-installer')
-		end
-	}
+			require("nvim-autopairs").setup({})
+		end,
+	})
 
-	use {
-		"SmiteshP/nvim-navic",
-		requires = "neovim/nvim-lspconfig"
-	}
-
-	-- Статуслайн
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+	-- Icons for autocomplit
+	use({
+		"onsails/lspkind-nvim",
 		config = function()
-			require('plugins/lualine')
-		end
-	}
+			require("plugins/lspkind")
+		end,
+	})
 
-	-- Комментарии
-	use {
-		'b3nj5m1n/kommentary',
+	-- Statuslines
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
-			require('kommentary.config').configure_language("typescript", {
+			require("plugins/lualine")
+		end,
+	})
+
+	-- Comments
+	use({
+		"b3nj5m1n/kommentary",
+		config = function()
+			require("kommentary.config").configure_language("typescript", {
 				single_line_comment_string = "//",
 				multi_line_comment_strings = { "/*", "*/" },
 			})
 		end,
-	}
+	})
 
-	-- Плагин для подсветки синтаксиса
-	use {
-		'nvim-treesitter/nvim-treesitter',
+	-- Highlighting
+	use({
+		"nvim-treesitter/nvim-treesitter",
 		config = function()
-			require('plugins/tree-sitter')
-		end
-	}
+			require("plugins/tree-sitter")
+		end,
+	})
 
-	-- Плагин для автодополнения скобок и кавычек
-	use {
-		'windwp/nvim-autopairs',
+	-- Telescope
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
+
+	-- Statusbar for buffers
+	use({
+		"akinsho/bufferline.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
-			require('nvim-autopairs').setup {}
-		end
-	}
-	
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+			require("plugins/buffline")
+		end,
+	})
 
-	-- Стутусбар для буферов
-	use {
-		'akinsho/bufferline.nvim',
-		requires = 'kyazdani42/nvim-web-devicons',
+	-- Documentation
+	use({
+		"danymat/neogen",
 		config = function()
-			require('plugins/buffline')
-		end
-	}
-
-	-- Тесты в Neovim
-	use {
-		"vim-test/vim-test",
-	}
-
-	-- Документация
-	use {
-		'danymat/neogen',
-		config = function ()
-			require('neogen').setup {
+			require("neogen").setup({
 				enabled = true,
 				input_after_comment = true,
-			}
-		end
-	}
-
-	-- Корректный синтаксис JSX
-	use {
-		'neoclide/vim-jsx-improve'
-	}
-
-	-- Prettier
-	use {
-		'prettier/vim-prettier'
-	}
-
-	-- autopep8
-	use {
-		'tell-k/vim-autopep8',
-	}
+			})
+		end,
+	})
 
 	-- Auto Save
-	use {
-		'Pocco81/auto-save.nvim',
+	use({
+		"Pocco81/auto-save.nvim",
 		config = function()
-			require('plugins/auto-save')
-		end
-	}
+			require("plugins/auto-save")
+		end,
+	})
 
-    -- ToggleTerm
-    use {
-        "akinsho/toggleterm.nvim", tag = '*', config = function()
-            require("toggleterm").setup()
-        end
-    }
-
-    -- Git
-    use {
-        'dinhhuy258/git.nvim',
+	-- nvim-runscript
+	use({
+		"klesh/nvim-runscript",
 		config = function()
-			require('plugins/git')
-		end
-    }
+			require("nvim-runscript").setup({})
+		end,
+	})
 
-    -- nvim-runscript
-    use {
-        "klesh/nvim-runscript",
-        config = function()
-            require("nvim-runscript").setup{}
-        end
-    }
+	-- Neo Tree
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"kyazdani42/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			require("neo-tree").setup({
+				popup_border_style = "rounded",
+			})
+		end,
+	})
+
+	-- Formatter
+	require("packer").use({
+		"mhartington/formatter.nvim",
+		config = function()
+			require("plugins/formatter")
+		end,
+	})
 end)

@@ -14,18 +14,16 @@ cmp.setup{
       documentation = cmp.config.window.bordered(),
     },
 
-	-- Клавиши, которые будут взаимодействовать в nvim-cmp
 	mapping = {
-
-		-- Вызов меню автодополнения
+        -- Menu for autocomplite
 		['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-		['<CR>'] = cmp.config.disable,                      -- Я не люблю, когда вещи автодополняются на <Enter>
-		['<C-y>'] = cmp.mapping.confirm({ select = true }), -- А вот на <C-y> вполне ок
+		['<CR>'] = cmp.config.disable,
+		['<C-y>'] = cmp.mapping.confirm({ select = true }),
 
-		-- Используем <C-e> для того чтобы прервать автодополнение
+        -- Break autocomplite
 		['<C-e>'] = cmp.mapping({
-			i = cmp.mapping.abort(), -- Прерываем автодополнение
-			c = cmp.mapping.close(), -- Закрываем автодополнение
+			i = cmp.mapping.abort(), -- break
+			c = cmp.mapping.close(), -- close
 		}),
 		['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
 		['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
@@ -33,11 +31,11 @@ cmp.setup{
 
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },                -- LSP 👄
-		{ name = 'nvim_lsp_signature_help' }, -- Помощь при введении параметров в методах 🚁
+		{ name = 'nvim_lsp_signature_help' }, -- Help with parametrs of methods 🚁
 		{ name = 'luasnip' },                 -- Luasnip 🐌
-		{ name = 'buffer' },                  -- Буфферы 🐃
-		{ name = 'path' },                    -- Пути 🪤
-		{ name = "emoji" },                   -- Эмодзи 😳
+		{ name = 'buffer' },                  -- Buffers 🐃
+		{ name = 'path' },                    -- Paths 🪤
+		{ name = "emoji" },                   -- Emoji 😳
 	}, {
 	}),
 	formatting = {

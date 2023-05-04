@@ -1,8 +1,11 @@
 require('keys/alias')
 
--- Назначает дополнительной клавишей для отключения режима J + K
-im('jk', '<escape>')
+-- Space for <leader>
+vim.g.mapleader = ' '
 
--- Сохранение
-nm('s', '<nop>') -- Анбинд s
+-- Disable insert mode (J + K)
+im('jk', 'escape')
+
+-- Save
+nm('s', '<nop>') -- unbid s
 nm('<leader>k', '<cmd>w<CR>')

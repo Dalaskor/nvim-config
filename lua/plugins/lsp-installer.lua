@@ -1,24 +1,22 @@
--- HTML
---[[ lspconfig.emmet_ls.setup {
-	capabilities = capabilities,
-	filetypes = { 'html', 'css', 'sass', 'scss', 'less' },
-} ]]
-
-
--- Берем плагин для установки LSP
 local lspinstaller = require'nvim-lsp-installer'
-
--- Конфигурация для LSP
 local lspconfig = require'lspconfig'
 
--- Конфигурируем lsp-installer
 lspinstaller.setup{
 	ensure_installed = {
-		'cssls',                  -- CSS
-		'emmet_ls',               -- HTML
-		'pyright',				  -- Python
-		'tsserver',               -- Typescript, Javascript
-		'volar'                   -- Vue
+        -- C++
+        'clang',
+        -- Python
+		'pyright',
+        -- TypeScript/JavaScript
+		'tsserver',
+        -- HTML
+		'emmet_ls',
+        -- CSS
+		'cssls',
+        -- Lua
+        'sumnako_lua',
+        -- Markdown
+        'remark_ls',
 	},
 }
 
@@ -33,6 +31,6 @@ for _, server in ipairs(lspinstaller.get_installed_servers()) do
     flags = {
       debounce_text_changes = 150,
     },
-    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+    -- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
   }
 end
