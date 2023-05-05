@@ -34,15 +34,19 @@ require("formatter").setup({
 		},
 
 		typescript = {
-			require("formatter.filetypes.typescript").prettiereslint,
+			require("formatter.filetypes.typescript").prettier,
 		},
 
 		javascript = {
-			require("formatter.filetypes.javascript").prettiereslint,
+			require("formatter.filetypes.javascript").prettier,
 		},
 
 		markdown = {
 			require("formatter.filetypes.markdown").prettier,
+		},
+
+		sh = {
+			require("formatter.filetypes.sh").shfmt,
 		},
 
 		["*"] = {
