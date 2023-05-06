@@ -218,10 +218,10 @@ return require("packer").startup(function()
 
     -- Markdown preview
     -- install without yarn or npm
-    use({
+    --[[ use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
-    })
+    }) ]]
 
     use({ 
         "iamcco/markdown-preview.nvim",
