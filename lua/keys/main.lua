@@ -4,7 +4,7 @@ require('keys/alias')
 vim.g.mapleader = ' '
 
 -- Disable insert mode (J + K)
-im('jk', 'escape')
+im('jk', '<escape>')
 
 -- Save
 nm('s', '<nop>') -- unbid s

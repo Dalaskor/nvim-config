@@ -177,12 +177,12 @@ return require("packer").startup(function()
 	})
 
 	-- Auto Save
-	use({
+	--[[ use({
 		"Pocco81/auto-save.nvim",
 		config = function()
 			require("plugins/auto-save")
 		end,
-	})
+	}) ]]
 
 	-- nvim-runscript
 	use({
