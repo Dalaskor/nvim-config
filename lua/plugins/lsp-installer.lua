@@ -13,10 +13,6 @@ lspinstaller.setup{
 		'emmet_ls',
         -- CSS
 		'cssls',
-        -- Lua
-        'sumnako_lua',
-        -- Markdown
-        'remark_ls',
 	},
 }
 
