@@ -22,11 +22,6 @@ nm('<leader>q', '<cmd>Telescope buffers<CR>')                        -- Буфф
 -- SymbolsOutline
 nm('<leader>s', '<cmd>SymbolsOutline<CR>')                        -- Структура для файла
 
--- BufferLine
-nm('gx', '<cmd>bd<CR>')                                            -- Закрыть буффер
-nm('gT', '<cmd>BufferLineCyclePrev<CR>')                           -- Перейти в предыдущий буффер
-nm('gt', '<cmd>BufferLineCycleNext<CR>')                           -- Перейти в следующий буффер
-
 -- Formatter
 nm('<leader>l', '<cmd>Format<CR>')
 
@@ -36,3 +31,8 @@ nm('<leader>l', '<cmd>Format<CR>')
 -- Trouble
 nm('<leader>x', '<cmd>TroubleToggle<CR>')                         -- Открыть меню с проблемами LSP
 nm('gr', '<cmd>Trouble lsp_references<CR>')                       -- Референсы в LSP
+
+-- BufferLine
+nm('gx', '<cmd>bd<CR>')                                            -- Закрыть буффер
+nm('gT', '<cmd>BufferLineCyclePrev<CR>')                           -- Перейти в предыдущий буффер
+nm('gt', '<cmd>BufferLineCycleNext<CR>')                           -- Перейти в следующий буффер
