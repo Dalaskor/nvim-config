@@ -36,3 +36,6 @@ nm('gr', '<cmd>Trouble lsp_references<CR>')                       -- Рефер�
 nm('gx', '<cmd>bd<CR>')                                            -- Закрыть буффер
 nm('gT', '<cmd>BufferLineCyclePrev<CR>')                           -- Перейти в предыдущий буффер
 nm('gt', '<cmd>BufferLineCycleNext<CR>')                           -- Перейти в следующий буффер
+
+--LazyGit
+nm('<leader>gg', '<cmd>LazyGit<CR>')                           -- Перейти в следующий буффер
