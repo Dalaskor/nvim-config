@@ -67,4 +67,6 @@ require("lazy").setup({
   { 'folke/trouble.nvim', dependencies = { "nvim-tree/nvim-web-devicons" }, },
   -- LazyGit
   { 'kdheepak/lazygit.nvim', dependencies = { "nvim-lua/plenary.nvim" } },
+  -- Symbols outline
+  { 'simrat39/symbols-outline.nvim' },
 })
