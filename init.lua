@@ -1,11 +1,19 @@
---[[ BASE ]]--
-require('base/tabs')
-require('base/search')
-require('base/other')
+-- Basic
+require('core.plugins')
+require('core.mappings')
+require('core.colors')
+require('core.configs')
 
---[[ PLUGINS ]]--
-require('plugins/packer_install')
-
---[[ KEYS ]]--
-require('keys/main')
-require('keys/plugins')
+-- Plugins
+require('plugins.neotree')
+require('plugins.treesitter')
+require('plugins.lsp')
+require('plugins.cmp')
+require('plugins.mason')
+require('plugins.telescope')
+require('plugins.nullls')
+require('plugins.bufferline')
+require('plugins.comment')
+require('plugins.dashboard')
+require('plugins.gitsigns')
+require('plugins.lualine')
