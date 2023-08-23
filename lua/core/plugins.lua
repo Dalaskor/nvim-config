@@ -69,4 +69,6 @@ require("lazy").setup({
   { 'kdheepak/lazygit.nvim', dependencies = { "nvim-lua/plenary.nvim" } },
   -- Symbols outline
   { 'simrat39/symbols-outline.nvim' },
+  -- Toggleterm
+  { 'akinsho/toggleterm.nvim', version = "*", config = true },
 })

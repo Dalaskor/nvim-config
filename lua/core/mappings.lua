@@ -18,3 +18,6 @@ vim.keymap.set('n', 'gr', '<cmd>Trouble lsb_references<CR>')
 
 -- LazyGit
 vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<CR>')
+
+-- ToggleTerm
+vim.keymap.set('n', '<leader>t', '<cmd>ToggleTerm<CR>')
