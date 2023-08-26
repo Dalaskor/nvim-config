@@ -71,4 +71,6 @@ require("lazy").setup({
   { 'simrat39/symbols-outline.nvim' },
   -- Toggleterm
   { 'akinsho/toggleterm.nvim', version = "*", config = true },
+  -- AutoSave
+  { 'pocco81/auto-save.nvim' },
 })
