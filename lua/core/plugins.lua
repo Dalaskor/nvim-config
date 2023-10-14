@@ -72,5 +72,5 @@ require("lazy").setup({
   -- Toggleterm
   { 'akinsho/toggleterm.nvim', version = "*", config = true },
   -- AutoSave
-  { 'pocco81/auto-save.nvim' },
+  -- { 'pocco81/auto-save.nvim' },
 })
