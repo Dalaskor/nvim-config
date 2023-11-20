@@ -11,6 +11,7 @@ vim.keymap.set('n', 'gt', '<cmd>BufferLineCycleNext<CR>')
 
 -- Telescope
 vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<CR>')
+vim.keymap.set('n', 'gp', '<cmd>Telescope projects<CR>')
 
 -- Trouble
 vim.keymap.set('n', '<leader>x', '<cmd>TroubleToggle<CR>')

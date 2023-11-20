@@ -73,4 +73,6 @@ require("lazy").setup({
   { 'akinsho/toggleterm.nvim', version = "*", config = true },
   -- AutoSave
   -- { 'pocco81/auto-save.nvim' },
+  -- Project Manager
+  {'ahmedkhalf/project.nvim'},
 })

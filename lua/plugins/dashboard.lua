@@ -84,6 +84,15 @@ require('dashboard').setup {
                 key_hl = 'Number',
                 action = ':Telescope find_files'
             }, {
+                icon = '󰈞 ',
+                icon_hl = 'Title',
+                desc = 'Recent projects',
+                desc_hl = 'String',
+                key = 'f',
+                keymap = 'SPC g p',
+                key_hl = 'Number',
+                action = ':Telescope projects'
+            }, {
                 icon = ' ',
                 icon_hl = 'Title',
                 desc = 'Find text',
