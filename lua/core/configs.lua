@@ -52,5 +52,9 @@ vim.opt.fillchars = {
     foldclose = "▸"
 }
 
+-- Tabline
+-- vim.o.showtabline = 2
+-- vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
+
 vim.cmd([[highlight clear LineNr]])
 vim.cmd([[highlight clear SignColumn]])
