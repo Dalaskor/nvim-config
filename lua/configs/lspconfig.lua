@@ -3,16 +3,26 @@ local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "tsserver", "prismals", "gopls", "pylsp", "rust_analyzer" }
+local lspconfig = require("lspconfig")
+local servers = { "html", "cssls", "tsserver", "prismals", "gopls", "pylsp", "rust_analyzer", "gdscript" }
+
+-- local lsp_flags = {
+-- 	-- This is the default in Nvim 0.7+
+-- 	debounce_text_changes = 150,
+-- }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
+	lspconfig[lsp].setup({
+		on_attach = on_attach,
+		on_init = on_init,
+		capabilities = capabilities,
+	})
 end
 
-lspconfig.prismals.setup {}
+lspconfig.prismals.setup({})
+lspconfig.gdscript.setup({
+	on_attach = on_attach,
+	-- flags = lsp_flags,
+	filetypes = { "gd", "gdscript", "gdscript3" },
+})
