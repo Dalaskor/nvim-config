@@ -44,6 +44,7 @@ return {
         "markdown",
         "markdown_inline",
         "prisma",
+        "pug",
       },
     },
   },
