@@ -5,8 +5,8 @@ local options = {
     html = { "prettier" },
     -- javascript = { "deno_fmt" },
     -- typescript = { "deno_fmt" },
-    javascript = { { "prettier" } },
-    typescript = { { "prettier" } },
+    javascript = { "prettier" },
+    typescript = { "prettier" },
   },
 
   format_on_save = {
