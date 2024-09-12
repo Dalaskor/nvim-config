@@ -25,6 +25,7 @@ return {
         "css-lsp",
         "prettier",
         "node-debug2-adapter",
+        "vue-language-server"
       },
     },
   },
