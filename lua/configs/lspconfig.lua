@@ -1,10 +1,10 @@
--- EXAMPLE 
+-- EXAMPLE
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "ts_ls", "prismals", "vuels" }
+local servers = { "html", "cssls", "ts_ls", "prismals", "vuels", "gopls" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -15,4 +15,4 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.prismals.setup({})
+lspconfig.prismals.setup {}
