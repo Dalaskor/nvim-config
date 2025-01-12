@@ -7,6 +7,7 @@ local options = {
     -- typescript = { "deno_fmt" },
     javascript = { "prettier" },
     typescript = { "prettier" },
+    sql = { "sql_formatter" },
   },
 
   -- format_on_save = {

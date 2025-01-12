@@ -26,6 +26,8 @@ return {
         "prettier",
         "node-debug2-adapter",
         "vue-language-server",
+        "sql-formatter",
+        "sqlls"
       },
     },
   },
