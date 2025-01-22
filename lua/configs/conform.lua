@@ -8,6 +8,7 @@ local options = {
     javascript = { "prettier" },
     typescript = { "prettier" },
     sql = { "sql_formatter" },
+    python = { "autopep8" },
   },
 
   -- format_on_save = {

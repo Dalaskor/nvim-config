@@ -27,7 +27,9 @@ return {
         "node-debug2-adapter",
         "vue-language-server",
         "sql-formatter",
-        "sqlls"
+        "sqlls",
+        "pyright",
+        "autopep8",
       },
     },
   },
